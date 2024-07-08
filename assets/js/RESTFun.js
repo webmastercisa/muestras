@@ -113,7 +113,7 @@ function GetBPData(CallBack)
  * @see       {@link https://www.ceramicaitalia.com/} 
  * @copyright T.I. CISA 2024 
  */
-function SetPedidoDetalle(Consecutivo, CodSAP, Descripcion)
+function SetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/detail/";
@@ -154,11 +154,12 @@ function SetPedidoDetalle(Consecutivo, CodSAP, Descripcion)
     .fail(function (jqXHR, textStatus, errorThrown)  {  ShowMessageError('Error en AJAX:' + jqXHR.responseText + ' ' + textStatus + ' ' + errorThrown); })
     .done(function (Data) 
     {      
-      console.log('Data: ', Data);     
+      console.log('Data: ', Data); 
+      CallBack(Consecutivo);   
     });
 }
 
-function SetPedido()
+function SetPedido(NP, BP, CN, PO, Consecutivo)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/createdocument/";
@@ -172,14 +173,14 @@ function SetPedido()
       {
         "BANDERA":"FINALIZAR",
         "IDREG":"",
-        "CONSECUTIV":"00000495",
+        "CONSECUTIV":Consecutivo,
         "NOMBRE":"EDWIN ORTEGA",
         "TELEFONO":"3165217418",
         "CORREO":"EBOR94@HOTMAIL.COM",
         "IDENTIFICACION":"125591",
         "CODVEN":"",
         "TDOC":"ZECO",
-        "CANAL":"80",
+        "CANAL":CN,
         "NOTA":"PEDIDO COMBOS",
         "ZONAV":"401",
         "OFIV":"110",
@@ -201,7 +202,6 @@ function SetPedido()
       console.log('Data: ', Data);     
     });
 }
-
 
 
 function OrderSendData(SapCod)

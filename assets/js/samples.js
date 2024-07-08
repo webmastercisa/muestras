@@ -31,12 +31,23 @@ $(function()
 
 function InitApp()
 {
-  LS_Set('BP', 11);
-  LS_Set('FltTrafico', '');  //const cat = localStorage.getItem("myCat");  localStorage.removeItem("myCat");
+  //np=37940846&ns=101800&c=10&po=BARRANCABERMEJA
+  const TokensURL = new URLSearchParams(window.location.search);
+  let NP = TokensURL.get('np'); //  NIT principal
+  let BP = TokensURL.get('ns'); // BP Numero solicitante
+  let CN = TokensURL.get('c');  // Canal
+  let PO = TokensURL.get('po'); // Poblacion
+
+  LS_Set('NP', NP);
+  LS_Set('BP', BP);  
+  LS_Set('CN', CN);
+  LS_Set('PO', PO);
+
+  LS_Set('FltTrafico', '');
   LS_Set('FltClasificacion', '');
   LS_Set('Data', "");
   LS_Set('DataFlt', "");
-  LS_Set('myCat', "Tom");
+
   GetTodosProductos();
 }
 
@@ -288,42 +299,22 @@ function GrabarDetalles(Consecutivo)
   {
     let CodSAP = this.attributes.prod_sap.value;
     let Descripcion = this.attributes.prod_sap_nom.value;
-    SetPedidoDetalle(Consecutivo, CodSAP, Descripcion)
+    SetPedidoDetalle(FinalizarPedido, Consecutivo, CodSAP, Descripcion)
   });
-  DivWaitHide();
 }
 
 /**
  * Graba los datos iniciales del cliente.
  * @returns void
  */
-function OrderSaveDataInit()
+function FinalizarPedido(Consecutivo)
 {
-  let CompanyName     = $('#CompanyName').val();
-  let DeliveryAddress = $('#DeliveryAddress').val();
-  let Email           = $('#Email').val();
-  let PhoneNumber       = $('#PhoneNumber').val();
-
-  let MsgError = '';
-  if(CompanyName == '')     MsgError = MsgError + 'Missing Company name';
-  if(DeliveryAddress == '') MsgError = MsgError + ' - Missing Delivery Address';
-  if(Email == '')           MsgError = MsgError + ' - Missing Email';
-  if(PhoneNumber == '')     MsgError = MsgError + ' - Missing phone number';
-  if(MsgError != '')
-  {
-    ShowMessageError(MsgError);
-    return 0;
-  }
-
-  /** ====================  Almacenar var en storage ===================== */
-  localStorage.setItem("CompanyName", CompanyName);
-  localStorage.setItem("DeliveryAddress", DeliveryAddress);
-  localStorage.setItem("Email", Email);
-  localStorage.setItem("PhoneNumber", PhoneNumber);
-  
-  ModalInputInfoHide();
-
-  return 0;
+  DivWaitShow();
+  let NP = LS_Get('NP'); //  NIT principal
+  let BP = LS_Get('BP'); // BP Numero solicitante
+  let CN = LS_Get('CN'); // Canal
+  let PO = LS_Get('PO'); // Poblacion
+  SetPedido(NP, BP, CN, PO, Consecutivo);
 }
 
 
