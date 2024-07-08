@@ -1,0 +1,185 @@
+
+  /*
+  .btnCISA {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 50px;
+    padding: 4px 15px 4px 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.7s, color 0.5s;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 2px;
+  }
+
+  */
+
+  .btnCISA {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+    border-radius: 50px;    
+    padding: 4px 15px 4px 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.7s, color 0.5s;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+
+  .btnCISA:hover
+  {
+    background-color: red;
+    color: white;
+  }
+
+  .btnCISAInv
+  {
+    background-color: red;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 4px 15px 4px 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.7s, color 0.5s;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 4px;
+    margin-top: 2px;
+    width: -moz-available;
+  }
+
+ 
+  .btnCISAInv:hover
+  {
+    background-color: white;
+    color: red;
+  }
+
+  .btnSheet
+  {
+    background-color: rgb(255, 255, 255);
+    color: rgb(133, 133, 133);
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 50px;
+    padding: 4px 15px 4px 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.7s, color 0.5s;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    margin-top: 2px;
+    width: -moz-available;
+  }
+
+  .btnSheet:hover
+  {
+    background-color: rgb(133, 133, 133);
+    color: white;
+  }
+
+  .btnRem
+  {
+    background-color: rgb(255, 255, 255);
+    color: rgb(133, 133, 133);
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 50px;
+    padding: 4px 15px 4px 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.7s, color 0.5s;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 50%;
+    font-size: 12px;
+  }
+
+  .btnRem:hover
+  {
+    font-size: 12px;
+    background-color: rgb(133, 133, 133);
+    color: white;
+  }
+
+  .bt-categoria
+  {
+    display: block;
+    width: 95%;
+    margin-bottom: 2px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border-bottom: 3px solid rgb(212, 212, 212);
+    background-color: #000;
+  }
+  
+  .bt-categoria:hover
+  {
+    transition: box-shadow 0.5s ease-in-out;
+    padding: 10;
+    /*border: 1px solid rgb(255, 0, 0);*/
+    border-bottom: 3px solid rgb(255, 0, 0);
+  }  
+
+  .bt-categoria-sel
+  {
+    display: block;
+    width: 100%;
+    margin-bottom: 2px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border-bottom: 3px solid rgb(0 255 243);
+    filter: invert(100%);
+    background-color: #000;
+  }  
+
+  .bt-clasificacion
+  {
+    display: block;
+  }
+
+  .bt-clasificacion-sel
+  {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #f00;
+    border-radius: 25px;    
+  }  
+
+/**  =============  Botones redondos ============
+ *         Uso:
+ *                            <button class="btn btn-outline-light btn-sm">-</button>
+ *                            <button class="btn btn-outline-light btn-sm">+</button>
+ */
+ .btn-outline-light.btn-sm
+ {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  line-height: 30px; /* Centra verticalmente el texto */
+}
+
+/* Ajuste para los botones para hacerlos redondos completamente */
+.btn-outline-light.btn-sm:after
+{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}

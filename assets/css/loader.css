@@ -1,0 +1,103 @@
+@keyframes loader {
+	0%, 10%, 100% {
+		width: 81px;
+		height: 81px;
+	}
+	65% {
+		width: 250px;
+		height: 250px;
+	}
+}
+@keyframes loaderBlock {
+	0%, 30% { 
+		transform: rotate(0);
+	}
+	55% {
+		background-color: #ffffff;
+	}
+	100% {
+		transform: rotate(90deg);
+
+	}
+}
+@keyframes loaderBlockInverse {
+	0%, 20% { 
+		transform: rotate(0);
+	}
+	55% {
+		background-color: #ffffff;
+	}
+	100% {
+		transform: rotate(-90deg);
+	}
+}
+
+#LoaderId
+{
+	visibility:hidden;
+}
+
+
+.loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 220px;
+	height: 220px;
+	transform: translate(-50%, -50%) rotate(45deg) translate3d(0,0,0);
+	animation: loader 1.2s infinite ease-in-out;
+
+	span
+  {
+		position: absolute;
+		display: block;
+		width: 80px;
+		height: 80px;
+		background-color: #ffffff;
+		animation: loaderBlock 1.2s infinite ease-in-out both;
+
+		&:nth-child(1) {
+			top: 0;
+			left: 0;
+      border: 10px double red;			
+			background-color: #fff;
+      border-radius: 15px;
+
+			.flame
+			{
+				background-image: url("../img/flame.png");
+				background-position: center; /* Center the image */
+				background-repeat: no-repeat; /* Do not repeat the image */
+				background-size: cover; /* Resize the background image to cover the entire container */
+				width: 35px;
+				height: 50px;
+				/*animation: loaderBlockInverse 1.2s infinite ease-in-out both;*/
+				animation: loaderBlockInverse 1.2s infinite ease-out;
+				/*transform: translate(-50%, -50%) rotate(-145deg) translate3d(0,0,0);*/
+				margin-top: 5px;
+        margin-left: 13px;
+			}
+
+		}
+		&:nth-child(2) {
+			top: 0;
+			right: 0;
+			animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+      border: 10px double red;
+      border-radius: 15px;
+		}
+		&:nth-child(3) {
+			bottom: 0;
+			left: 0;
+			animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+      border: 10px double red;
+      border-radius: 15px;
+		}
+		&:nth-child(4) {
+			bottom: 0;
+			right: 0;
+      border: 10px double red;
+      border-radius: 15px;
+		}
+	}
+}

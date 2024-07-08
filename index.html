@@ -1,0 +1,219 @@
+<?php
+  require_once 'inc/autoload.php';
+?>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"     content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Twitter -->
+    <meta name="twitter:site"         content="@cisa">
+    <meta name="twitter:creator"      content="@cisa">
+    <meta name="twitter:card"         content="summary_large_image">
+    <meta name="twitter:title"        content="Cerámica Italia">
+    <meta name="twitter:description"  content="Cerámica Italia - Muestras">
+    <meta name="twitter:image"        content="http://themepixels.me/dashforge/img/dashforge-social.png">
+    <!-- Facebook -->
+    <meta property="og:url"           content="https://usa.ceramicaitalia.com">
+    <meta property="og:title"         content="Cerámica Italia">
+    <meta property="og:description"   content="Cerámica Italia - Muestras">
+    <meta property="og:image"             content="http://themepixels.me/dashforge/img/dashforge-social.png">
+    <meta property="og:image:secure_url"  content="http://themepixels.me/dashforge/img/dashforge-social.png">
+    <meta property="og:image:type"        content="image/png">
+    <meta property="og:image:width"       content="1200">
+    <meta property="og:image:height"      content="600">
+    <!-- Meta -->
+    <meta name="description"  content="Cerámica Italia - Muestras">
+    <meta name="author"       content="CISA">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">    
+    <title>Cerámica Italia .::. Muestras</title>
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/samples.css">
+    <link rel="stylesheet" href="assets/css/loader.css">
+    <link rel="stylesheet" href="assets/css/over.css">
+    <link rel="stylesheet" href="assets/css/buttons.css">
+    <link rel="stylesheet" href="assets/css/media.css">
+  </head>
+  <!-- ========================================================================================== -->
+  <body  class="page-profile">
+    <!-- _____________________________________ Spinner ____________________________________________________________ -->
+    <div class="contenedor-loader" id="DivWait">
+      <div class="loader">
+        <span><div class="flame"></div></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <!-- _____________________________________ Contenedor ____________________________________________________________ -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-1" id="LstBtTrafico">
+
+          <div class="row">
+            <div class="col">
+              <div class="div-logo-cisa">
+                <img class="logo-cisa" src="assets/img/cisa-logo.png">                
+              </div>
+            </div>
+          </div><!-- row -->
+
+
+          <div class="row">
+            <div class="col">
+              <div class="div-logo-cisa">
+                <a href="javascript:void(0);" FltTrafico="RESIDENCIAL MODERADO" onclick="OnClicFltTraficoChange(this);" class="bt-categoria">
+                  <img src="assets/imgcards/bt-residencial-moderado.png">
+                </a>
+              </div>
+            </div>
+          </div> <!-- row -->
+
+          <div class="row">
+            <div class="col">
+              <div class="div-logo-cisa">
+                <a href="javascript:void(0);" FltTrafico="RESIDENCIAL GENERAL" onclick="OnClicFltTraficoChange(this);" class="bt-categoria">
+                  <img src="assets/imgcards/bt-residencial-general.png">
+                </a>
+              </div>
+            </div>
+          </div> <!-- row -->
+
+          <div class="row">
+            <div class="col">
+              <div class="div-logo-cisa">
+                <a href="javascript:void(0);" FltTrafico="COMERCIAL MODERADO" onclick="OnClicFltTraficoChange(this);" class="bt-categoria">
+                  <img src="assets/imgcards/bt-trafico-comercial-moderado.png">
+                </a>
+              </div>
+            </div>
+          </div> <!-- row -->
+
+          <div class="row">
+            <div class="col">
+              <div class="div-logo-cisa">
+                <a href="javascript:void(0);" FltTrafico="COMERCIAL GENERAL" onclick="OnClicFltTraficoChange(this);" class="bt-categoria">
+                  <img src="assets/imgcards/bt-trafico-comercial-general.png">
+                </a>
+              </div>
+            </div>
+          </div> <!-- row -->
+
+        </div> <!-- col -->
+        
+        <div class="col-lg-10 col-md-10 col-11 container-a4">
+
+          <ul class="caption-style-4 mt-2">
+            <li id="bt-clasificacion1" class="bt-clasificacion">
+              <img src="assets/imgcards/interior-dry.png" alt="">              
+              <a href="javascript:void(0);" FltClasificacion="INTERIOR DRY" fltno="1" onclick="OnClicFltClasificacionChange(this);">
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <p id="ClasificacionDesc1">Dormitorios, estudios, sin acceso directo al exterior.</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li id="bt-clasificacion2" class="bt-clasificacion">
+              <img src="assets/imgcards/interior-wet-plus.png" alt="">
+              <a href="javascript:void(0);" FltClasificacion="INTERIOR WET PLUS" fltno="2" onclick="OnClicFltClasificacionChange(this);">              
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <p id="ClasificacionDesc2">Dormitorios, estudios y baños(incluyendo la ducha), balcones, saunas, sin acceso directo al exterior.</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li id="bt-clasificacion3" class="bt-clasificacion">
+              <img src="assets/imgcards/exterior-wet.png" alt="">
+              <a href="javascript:void(0);" FltClasificacion="EXTERIOR WET" fltno="3" onclick="OnClicFltClasificacionChange(this);">
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <p id="ClasificacionDesc3">Exterior de piscinas residenciales, baños(Incluyendo duchas) saunas, balcones.</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li id="bt-clasificacion4" class="bt-clasificacion">
+              <img src="assets/imgcards/exteriorwetplus.png" alt="">
+              <a href="javascript:void(0);" FltClasificacion="EXTERIOR WET PLUS" fltno="4" onclick="OnClicFltClasificacionChange(this);">              
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text"><p id="ClasificacionDesc4">Exterior de piscinas residenciales, baños(Incluyendo duchas) saunas, balcones.</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div> <!-- col -->
+
+
+      </div><!-- row -->
+      
+      <div class="row">
+        <div class="col-lg-2 col-md-5 col-6">
+          <div class="div-frame-sel">
+            <div class="tx-r1-5 tx-center titulo-gallery">Muestras seleccionadas</div>
+              <div class="container">
+                <div class="row" id="SamplesSelected"></div> <!-- row -->
+              </div> <!-- container -->
+              <div class="recCISA">
+                <div class="btnCISAInv" onclick="OrderTerminate();">Solicitar muestra</div>                
+              </div>
+              <div class="tx-gallery tx-center">Las muestras serán enviadas a la dirección proporcionadas.</div>
+          </div> <!-- Frame -->
+        </div> <!-- col -->
+
+        <div class="col-lg-10 col-md-7 col-6">
+          <h4 class="titulo-gallery">Solicite la muestra haciendo clic en el botón "Agregar".</h4>
+          <div id="gallery" class="gallery"></div>
+        </div>
+
+      </div> <!-- row -->
+    </div> <!-- container -->
+
+    <!-- =============================   JavaScript Bundle con Popper  =========================== -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/Funciones.js"></script>
+    <script src="assets/js/Creators.js"></script>
+    <script src="assets/js/ShowMessage.js"></script>
+    <script src="assets/js/samples.js"></script>
+    <script src="assets/js/process_json.js"></script>
+    <script src="assets/js/RESTFun.js"></script>
+  </body>
+</html>

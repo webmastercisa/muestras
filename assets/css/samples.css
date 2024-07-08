@@ -1,0 +1,441 @@
+  .container
+  {
+    max-width: 98% !important;
+  }
+
+  #DivWait
+  {
+    position: fixed; /* Posición fija en la pantalla */
+    top: 50%;        /* Posicionado al 50% del alto de la pantalla */
+    left: 50%;       /* Posicionado al 50% del ancho de la pantalla */
+    transform: translate(-50%, -50%); /* Desplaza el elemento al centro exacto */
+    z-index: 1000;   /* Asegura que el div esté sobre otros elementos */
+    
+    /* Estilos adicionales para visibilidad */
+    width: 300px;    /* Anchura fija */
+    height: 200px;   /* Altura fija */
+    /*background: white; /* Color de fondo */
+    /*border: 1px solid #ccc; /* Borde para mejor visibilidad */
+   /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra opcional */
+    padding: 20px;   /* Espacio interior */
+    box-sizing: border-box; /* Incluye padding y border en la medida del width/height */
+    text-align: center; /* Centra el texto dentro del div */
+    display: flex; /* Hace que el contenido interno use flexbox */
+    align-items: center; /* Centra el contenido internamente en vertical */
+    justify-content: center; /* Centra el contenido internamente en horizontal */
+    visibility: hidden;
+  }
+
+  .spinner-border 
+  {
+    display: inline-block;
+    width: 8rem;
+    height: 8rem;
+    vertical-align: -.125em;
+    border: .25em solid currentColor;
+    border-right-color: currentcolor;
+    border-right-color: #ffffff7d;
+    border-radius: 50%;
+    -webkit-animation: .75s linear infinite spinner-border;
+    animation: .75s linear infinite spinner-border;
+    color: #f00;
+  }
+
+  .titulo-gallery
+  {
+    color:#5c5c5c;
+    text-align: center;
+  }
+
+  .div-logo-cisa
+  {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .logo-cisa
+  {
+    width: 33%;
+  }
+
+  .gallery
+  {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 16px;
+    margin: 20px;
+
+    padding-bottom: 20px;
+  }
+
+  .gallery .item
+  {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;/*4px;*/
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ensures the title stays at the bottom */
+  }
+
+  .gallery .item img
+  {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gallery .item h3
+  {
+    padding: 8px;
+    margin-top: auto;
+    text-align: center;
+    background-color: #f7f7f7;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect width */
+    font-size: 10px !important;
+  }
+
+  .gallery .item:hover
+  {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .fila-item
+  {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;/*4px;*/
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+  }
+
+  .fila-item h3
+  {
+    padding: 8px;
+    margin-top: auto;
+    text-align: center;
+    background-color: #f7f7f7;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect width */
+    font-size: 18px !important;
+  }
+
+  .fila-item h6
+  {
+    margin        : 0px 0px 5px 0px;
+    padding       : 5px 15px;
+    text-align    : center;
+    background-color: #ff0000;
+    color         : #ededed;
+    box-sizing    : border-box;
+    font-size     : 14px !important;
+    font-weight   : 700;
+    border-radius : 3px;
+  }
+
+  .div-txt
+  {
+    /*text-align    : center;*/
+    padding       : 0px 5px;
+    line-height   : normal;
+    color         : #000000;
+    box-sizing    : border-box;
+    font-size     : 12px !important;
+    font-weight   : 400;
+  }
+
+  .fila-item:hover
+  {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .div-frame-sel
+  {
+    /*position: fixed;*/
+    background-color: #dcdce9;
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 8px !important;
+    overflow: auto;
+    height: 98vh;
+    margin-top: 10px;
+    /*
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 25%;
+    */
+    top:20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  .div-frame-item-sel
+  {
+    /*width: 100%;*/
+    background-color: #e8e8e8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 15px !important;
+    color: #5c5c5c;
+  }
+
+  .div-frame-item-sel div 
+  {
+    flex: 1; /* Hace que cada input crezca para ocupar el espacio disponible */
+    margin: 2px; /* Espaciado entre los inputs */
+    padding: 4px; /* Espaciado interno para los inputs */
+  }
+
+  .recCISA
+  {
+    transform: translate(10%, 10%);
+    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #5c5c5c;
+    /*color:#5c5c5c;*/
+    border-radius: 8px !important;
+  }
+
+  .recFamilia
+  {
+    text-align: center;
+    justify-content: center;
+    padding: 7px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #5c5c5c;
+    border-radius: 8px !important;
+  }
+
+  .div-formato
+  {
+    background-color: #f00;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    width: 35px;
+    box-shadow: 0 0px 9px rgba(0, 0, 0, 0.5);
+    border-radius: 8px !important;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .div-columna1
+  {
+    grid-column: 1 / -1;
+  }
+
+  .tx-gallery { color:#9b9b9b;                }
+  .tx-r1      { font-size: 1rem !important;   }
+  .tx-r1-5    { font-size: 1.5rem !important;   }
+  .tx-r2      { font-size: 2rem !important;     }
+  .tx-r2-5    { font-size: 2.5rem !important;   }
+  .tx-12      { font-size: 12px !important;     }
+  .tx-14      { font-size: 12px !important;     }
+  .tx-bold    { font-weight: bolder !important; }
+  .tx-center  { text-align: center !important;  }
+  .tx-may     { text-transform: uppercase;      }
+  .tx-min     { text-transform: lowercase;      }
+  .tx-lh-10   { line-height: 10px;      }
+  .tx-lh-14   { line-height: 14px;      }
+  .tx-lh-18   { line-height: 18px;      }
+  .tx-lh-22   { line-height: 22px;      }
+  .tx-lh-24   { line-height: 24px;      }
+  
+  .w-70       { width: 70%;                     }
+  .margin-t-5 { margin-top: 5px;                }
+  .margin-t-10{ margin-top: 10px;               }  
+
+  /* ===============================================================================  */
+  /* ==================        Estilos para Modales         ========================= */
+  /* ===============================================================================  */
+  .modal-content 
+  {
+    border-radius: 15px;  /* Ajusta los bordes redondeados del modal */
+    background-color: #f2f1f8 !important;
+  }
+  /* ===============================================================================  */
+  /* ==================        Estilos para Formularios         ========================= */
+  /* ===============================================================================  */
+  .input-field 
+  {
+    position: relative;
+    width: 100%;
+  }
+
+  .input 
+  {
+    margin-top: 15px;
+    width: 100%;
+    outline: none;
+    border-radius: 8px;
+    height: 45px;
+    border: 1.5px solid #ecedec;
+    background: transparent;
+    /*background-color: #e8e8e8;*/
+    padding-left: 10px;
+    box-shadow: 0 5px 10px rgba(145, 145, 145, 0.2);
+  }
+
+  .input:focus 
+  {
+    border: 1.5px solid #ff0000;
+  }
+  
+  .input-field .label 
+  {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    color: #ccc;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  .input-field .input:focus ~ .label,
+  .input-field .input:valid ~ .label 
+  {
+    top: 5px;
+    left: 5px;
+    font-size: 12px;
+    border-radius: 8px;
+    color: #ff0000;
+    /*background-color: #ffffff;*/
+    background-color: #F2F1F8;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  
+
+  /* ===============   Iconos ============================== */
+  .icon-16
+  {
+    height: 32px;    
+    margin-bottom: 10px;
+  }
+
+  .icon-32
+  {
+    height: 32px;
+    margin-bottom: 10px;
+  }
+
+  .icon-64
+  {
+    height: 32px;
+    margin-bottom: 10px;
+  }
+
+  .icon-red
+  {
+    fill: #f00;
+  }
+
+  .icon-blue
+  {
+    fill: #00f;
+  }
+
+  .icon-green
+  {
+    fill: #0f0;
+  }  
+
+  .icon-white
+  {
+    fill: #fff;
+  }
+  .margin-t0
+  {
+    margin-left: 1%;
+  }
+
+  .hide
+  {
+    visibility: hidden;
+  }
+
+  .icono-close 
+  {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Cambia el color de fondo a rojo */
+    border-radius: 50%; /* Agrega un borde redondo al icono */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+  }
+  
+  .icono-close:hover {
+    background-color: rgb(49, 49, 49); /* Cambia el color de fondo a naranja cuando el usuario pasa el ratón por encima */
+  }
+
+  .icono-manita-si::before
+  {
+    content: "\f164";  /* Asegúrate de usar el código Unicode correcto del ícono */
+    font-family: "Font Awesome 6 Free"; /* Ajusta según si es la versión Free o Pro */
+    font-weight: 900; /* FontAwesome 6 necesita especificar el peso para íconos sólidos */
+    margin-right: 5px;
+    font-size: clamp(1rem, 5vw, 2.5rem);
+    color: #f00;
+  }
+
+  .icono-manita-no::before
+  {
+    content: "\f165";  /* Asegúrate de usar el código Unicode correcto del ícono */
+    font-family: "Font Awesome 6 Free"; /* Ajusta según si es la versión Free o Pro */
+    font-weight: 900; /* FontAwesome 6 necesita especificar el peso para íconos sólidos */
+    margin-right: 5px;
+    font-size: clamp(1rem, 5vw, 2.5rem);
+    color: #777;
+  }
+
+  .icono-poweroff::before
+  {
+    content: "\f011";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    /*margin-right: 5px;*/
+    font-size: clamp(1rem, 5vw, 2.5rem);
+    color: #f00;
+    margin: 4px;
+}

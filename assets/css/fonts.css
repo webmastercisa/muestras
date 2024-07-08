@@ -1,0 +1,39 @@
+@font-face
+{
+  font-family:NeutraText;
+  src:url(../fonts/NeutraText-Book.otf)
+}
+@font-face
+{
+  font-family:NeutraTextTF;
+  src:url(h../fonts/NeutraTextTF-Book.otf)
+}
+@font-face
+{
+  font-family:NeutraTextAltBold;
+  src:url(../fonts/Neutra-Text-Alt-Bold.ttf)
+}
+@font-face
+{
+  font-family:NeutraTextBook;
+  src:url(../fonts/NeutraDispTitling.otf)
+}
+/*
+@font-face 
+{
+  font-family: 'NeutraText';
+  src: url('../fonts/NeutraTextBold.woff') format('woff'),
+       url('../fonts/NeutraTextBoldItalicAlt.woff') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face 
+{
+  font-family: 'NeutraText';
+  src: url('../fonts/NeutraTextTFLightDemi.woff') format('woff'),
+       url('../fonts/NeutraTextTFLightItalic.woff') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+}
+*/

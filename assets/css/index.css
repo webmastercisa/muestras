@@ -1,0 +1,18 @@
+body, html
+{
+  height: 100%;
+  font-family: NeutraText;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;  
+  background-color: #f0f0f0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Personalizaciones adicionales si son necesarias */
+.bg-black
+{
+  background-color: #000 !important; /* Asegurando que el encabezado sea negro */
+}

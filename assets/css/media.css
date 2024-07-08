@@ -1,0 +1,425 @@
+/* ===============================================================================  */
+  /* ==================  Estilos para dispositivos móviles  ========================= */
+  /* ===============================================================================  */
+  @media only screen and (max-width: 412px) 
+  {
+    .tx-gallery { font-size: 0.7rem; color:#9b9b9b; line-height: 15px; }
+    .tx-r1-5    { font-size: 0.7rem !important;  line-height: 16px; }
+    .tx-r2      { font-size: 1.2rem !important;  line-height: 16px; }
+    .tx-r2-5    { font-size: 1.7rem !important;  line-height: 16px; }
+
+    h1  { font-size: 1.1233em !important; }
+    h3  { font-size: 14px !important; }
+    h4  { font-size: 0.8em !important; }
+
+    .div-txt 
+    {
+      font-size: 9px !important;
+      font-weight: 300 !important;
+    }
+
+  /** ===========  Tabulador   ================== */
+    #LstDetails2
+    {
+      font-size: 10px !important;
+    }
+
+    .tabulator 
+    {
+      background-color: #ccc;
+      border: 1px solid #777;
+      border-radius: 8px;
+      font-size: 9px;
+    }
+    /** ===========  Fin Tabulador   ================== */
+
+    .fila-item h6 
+    {
+      padding: 2px 3px;
+      font-size: 11px !important;
+      font-weight: 600;    
+    }
+
+    .div-frame-login 
+    {
+      width: 77% !important;
+      top: 120px !important;
+      margin-left: 2% !important;
+      margin-right: 2% !important;
+      padding-right: 1px;
+    }
+    
+    .div-frame-item-sel div 
+    {
+      flex: 1;
+      margin: 2px;
+      padding: 1px;
+      font-size: 10px !important;
+    }
+
+    .gallery 
+    {
+      grid-template-columns: repeat(1, 1fr);
+      margin: 0px;
+      padding-bottom: 5px;
+    }
+
+    .gallery .item h3
+    {
+      font-size: 16px;
+    }
+
+    .titulo-gallery { margin-bottom: 8px; }
+
+    .btnCISA
+    {
+      padding: 2px 3px 2px 3px;
+      border-radius: 20px;
+      font-size: 11px !important;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btnSheet
+    {
+      padding: 2px 8px 2px 8px;
+      border-radius: 20px;
+      font-size: 11px !important;
+      margin-left: 5%;
+      margin-right: 5%;
+      line-height: 12px;
+      /*width: 75px !important;*/
+    }
+    .btnCISAInv
+    {
+      padding: 2px 8px 2px 8px;
+      border-radius: 20px;
+      font-size: 11px !important;
+      margin-left: 5%;
+      margin-right: 5%;
+      line-height: 12px;
+      /*width: 75px !important;*/
+    }
+
+    .btnRem
+    {
+      padding: 4px 10px 4px 10px;
+      margin-left: 1%;
+      margin-right: 2%;
+      width: 40%;
+      font-size: 10px;
+    }
+
+    .logo-cisa
+    {
+      width: 40%;
+    }
+
+    .icono-close 
+    {
+      top: 8px !important;
+      right: 8px !important;
+      width: 25px !important;
+      height: 25px !important;
+    }
+
+  } 
+
+  /* Estilos para dispositivos móviles medianos (entre 576px y 767px de ancho) */
+  @media only screen and (min-width: 413px) and (max-width: 767px) 
+  {
+    .gallery 
+    {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery .item h3
+    {
+      font-size: 16px;
+    }
+
+    .btnCISA
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btnSheet
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .logo-cisa
+    {
+      width: 90%;
+    }
+
+    .icono-close 
+    {
+      top: 12px !important;
+      right: 12px !important;
+      width: 25px !important;
+      height: 25px !important;
+    }
+  }
+
+  /* Estilos para portátiles pequeños (entre 768px y 991px de ancho) */
+  @media only screen and (min-width: 768px) and (max-width: 991px) 
+  {
+    .gallery 
+    {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery .item h3
+    {
+      font-size: 16px;
+    }
+
+    .btnCISA
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btnSheet
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .logo-cisa
+    {
+      width: 90%;
+    }
+
+    .icono-close 
+    {
+      top: 18px !important;
+      right: 18px !important;
+      width: 25px !important;
+      height: 25px !important;
+    }    
+  }
+
+  /* Estilos para portátiles medianos (entre 992px y 1199px de ancho) */
+  @media only screen and (min-width: 992px) and (max-width: 1199px) 
+  {
+    .gallery 
+    {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery .item h3
+    {
+      font-size: 16px;
+    }
+
+    .btnCISA
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btnSheet
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .logo-cisa
+    {
+      margin-top: 90px;
+      width: 100%;          
+    }
+
+    /* ===== Tabs Dry y Wet ====*/
+    .caption-style-4 li 
+    {
+      width: 210px !important;
+      margin-right: 2px !important;
+      margin-left: 2px !important;
+    }
+    .caption-style-4 img 
+    {    
+      width: 210px !important;
+    }
+    .caption-style-4 .blur 
+    {      
+      width: 210px !important;
+      height: 300px;
+    }
+
+    .caption-style-4 .caption-text 
+    {
+      width: 210px;
+      height: 300px;
+      top: 30px;
+    }
+
+
+  }
+
+  /* Estilos para escritorios pequeños (entre 1200px y 1399px de ancho) */
+  @media only screen and (min-width: 1200px) and (max-width: 1399px) 
+  {
+    .gallery 
+    {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery .item h3
+    {
+      font-size: 16px;
+    }
+
+    .btnCISA
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btnSheet
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .logo-cisa
+    {
+      margin-top: 5px;
+      width: 100%;      
+    }
+
+    /* ===== Tabs Dry y Wet ====*/
+    .caption-style-4 li 
+    {
+        width: 150px !important;
+        margin-right: 15px !important;
+        margin-left: 70px !important;
+    }
+    .caption-style-4 img 
+    {    
+        width: 150px !important;
+    }
+    .caption-style-4 .blur 
+    {
+      height: 200px;
+      width:  150px !important;
+    }
+
+    .caption-style-4 .caption-text 
+    {
+      width:  150px;
+      height: 200px;
+      top:    8px;
+    }
+
+    .btnCISAInv 
+    {
+      width: -moz-available;
+      border-radius: 15px;
+      padding: 4px 10px 4px 10px;
+      margin-left: 1px;
+      margin-right: 1px;
+      margin-bottom: 4px;
+      margin-top: 2px;
+    }
+    .titulo-gallery 
+    {
+      line-height: 20px;
+    }
+
+    .div-frame-item-sel
+    {
+      display: block;
+      padding: 4px;
+      margin-bottom: 5px;
+      font-size: 14px !important;
+      text-align: center;
+    }
+
+    .recCISA 
+    {
+      transform: translate(3%, 3%);
+      padding: 2px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 95%;
+    }    
+    .bt-categoria
+    {
+      width: 95%;   
+    }
+  }
+
+  /* Estilos para escritorios grandes (1400px de ancho o más) */
+  @media only screen and (min-width: 1400px) 
+  {
+    .gallery 
+    {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .gallery .item h3
+    {
+      font-size: 16px;
+    }
+
+    .btnCISA
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .btnSheet
+    {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .logo-cisa
+    {
+      width: 80%;
+    }
+
+    /* ===== Tabs Dry y Wet ====*/
+    .caption-style-4 li 
+    {
+      width: 160px !important;
+      margin-right: 98px !important;
+      margin-left: 98px !important;
+    }
+    .caption-style-4 img 
+    {    
+      width: 160px !important;
+    }
+    .caption-style-4 .blur 
+    {      
+      width: 160px !important;
+      height: 213px;
+    }
+
+    .caption-style-4 .caption-text 
+    {
+      width: 160px;
+      height: 213px;
+      top: 30px;
+    }
+
+    .bt-categoria
+    {
+      width: 74%;      
+    }
+
+    .bt-categoria-sel
+    {
+      width: 74%;
+    }
+
+    
+
+  }
+
+/* ===============   Fin Medias ============================== */
