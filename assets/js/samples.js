@@ -1,32 +1,6 @@
-$(document).ready(function() 
-{
-  $('#email').blur(function() 
-  {
-    console.log('Validando');
-    var email = $(this).val();
-    if (validarEmail(email)) 
-    {
-      console.log("El correo electrónico es válido.");
-      // Cambiar el color del borde a verde o mostrar un mensaje positivo
-      $(this).css('border-color', 'green');
-      $(this).next('.error-message').text('');  // Limpiar mensaje de error si es válido
-    }
-    else 
-    {
-      console.log("Email account is invalid.");
-      // Cambiar el color del borde a rojo o mostrar un mensaje de error
-      $(this).css('border-color', 'red');
-      $(this).next('.error-message').text('email is invalid.');
-    }
-  });
-
-});
-
 $(function() 
 {
   InitApp();
-  //GetProductosPS();
-  //ModalInputInfoShow();
 });
 
 function InitApp()
@@ -34,8 +8,8 @@ function InitApp()
   //np=37940846&ns=101800&c=10&po=BARRANCABERMEJA
   const TokensURL = new URLSearchParams(window.location.search);
   let NP = TokensURL.get('np'); //  NIT principal
-  let BP = TokensURL.get('ns'); // BP Numero solicitante
-  let CN = TokensURL.get('c');  // Canal
+  let BP = TokensURL.get('ns'); //  BP Numero solicitante
+  let CN = TokensURL.get('c');  //  Canal
   let PO = TokensURL.get('po'); // Poblacion
 
   LS_Set('NP', NP);
@@ -48,7 +22,7 @@ function InitApp()
   LS_Set('Data', "");
   LS_Set('DataFlt', "");
 
-  GetTodosProductos();
+  RESTGetTodosProductos();
 }
 
 function OnClicFltTraficoChange(Param)
@@ -109,7 +83,6 @@ function ResetLstBtClasificacion()
     Bt.classList.add('bt-clasificacion');
   });
 }
-
 
 function SetDescriptionClasificacion(ClasificacionValue='')
 {
@@ -288,8 +261,8 @@ function OrderTerminate()
     ShowMessageError('Debe seleccionar, al menos un producto.');
     return;
   }//if    
-  //OrderSendData(SapCod);
-  GetConsecutivo(GrabarDetalles);
+
+  RESTGetConsecutivo(GrabarDetalles);
 }
 
 function GrabarDetalles(Consecutivo)
@@ -299,7 +272,7 @@ function GrabarDetalles(Consecutivo)
   {
     let CodSAP = this.attributes.prod_sap.value;
     let Descripcion = this.attributes.prod_sap_nom.value;
-    SetPedidoDetalle(FinalizarPedido, Consecutivo, CodSAP, Descripcion)
+    RESTSetPedidoDetalle(FinalizarPedido, Consecutivo, CodSAP, Descripcion)
   });
 }
 
@@ -314,7 +287,7 @@ function FinalizarPedido(Consecutivo)
   let BP = LS_Get('BP'); // BP Numero solicitante
   let CN = LS_Get('CN'); // Canal
   let PO = LS_Get('PO'); // Poblacion
-  SetPedido(NP, BP, CN, PO, Consecutivo);
+  RESTSetPedido(NP, BP, CN, PO, Consecutivo);
 }
 
 

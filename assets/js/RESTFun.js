@@ -11,7 +11,7 @@
  * @see       {@link https://www.ceramicaitalia.com/} 
  * @copyright T.I. CISA 2024 
  */
-function GetTodosProductos()
+function RESTGetTodosProductos()
 {
   DivWaitShow();
   let BP        = LS_Get('BP');
@@ -49,7 +49,7 @@ function GetTodosProductos()
  * @see       {@link https://www.ceramicaitalia.com/} 
  * @copyright T.I. CISA 2024 
  */
-function GetConsecutivo(CallBack)
+function RESTGetConsecutivo(CallBack)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/consecutive/";
@@ -74,7 +74,7 @@ function GetConsecutivo(CallBack)
 }
 
 /** TODO:  */
-function GetBPData(CallBack)
+function RESTGetBPData(CallBack)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/consecutive/";
@@ -113,7 +113,7 @@ function GetBPData(CallBack)
  * @see       {@link https://www.ceramicaitalia.com/} 
  * @copyright T.I. CISA 2024 
  */
-function SetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
+function RESTSetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/detail/";
@@ -159,7 +159,7 @@ function SetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
     });
 }
 
-function SetPedido(NP, BP, CN, PO, Consecutivo)
+function RESTSetPedido(NP, BP, CN, PO, Consecutivo)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/createdocument/";
@@ -177,9 +177,9 @@ function SetPedido(NP, BP, CN, PO, Consecutivo)
         "NOMBRE":"EDWIN ORTEGA",
         "TELEFONO":"3165217418",
         "CORREO":"EBOR94@HOTMAIL.COM",
-        "IDENTIFICACION":"125591",
+        "IDENTIFICACION":"0000104385",
         "CODVEN":"",
-        "TDOC":"ZECO",
+        "TDOC":"ZCOM",
         "CANAL":CN,
         "NOTA":"PEDIDO COMBOS",
         "ZONAV":"401",
@@ -190,7 +190,7 @@ function SetPedido(NP, BP, CN, PO, Consecutivo)
         "CLASEPEDIDO":"Z005",
         "REFERENCIA":"1379580500335-01",
         "CONDPAGO": "",
-        "MOTIVOP": "0000"
+        "MOTIVOP": "540"
         }),
   };
   
@@ -203,77 +203,20 @@ function SetPedido(NP, BP, CN, PO, Consecutivo)
     });
 }
 
-
-function OrderSendData(SapCod)
+function RESTSndMsgWhat(Msg='')
 {
-  DivWaitShow();
-  let URL = "https://lilix.ceramicaitalia.com:3001/producto/sample";  
-  let BP  = LS_Get('BP');
-  if (BP == 0)  { ShowMessageError('Error en BP');  return 0; }
-  let LstSAPCod = JSON.stringify(SapCod);
+  URL = 'https://lilix.ceramicaitalia.com:2508/API_Ext/SendWhatsapp.php';
+  //URL     = 'modules/mod_SendWhatsApp.php';
+  //let Msg = '🏡✨ ¡Buen día. Hoy se ha solicitado unas muestras 🟧⬜, por favor, proceda a gestionar el pedido 📥. Feliz día.'
+  formData.append('Msg',    Msg);
 
-  var settings = 
+  var ObjPost = $.post( URL, {Msg: Msg } );
+  ObjPost.done(function( data ) 
   {
-    "url": URL,
-    "method": "POST",
-    "timeout": 0,
-    "headers": { "Content-Type": "application/json" },
-    "data": JSON.stringify({"bp": BP}),
-  };
-  
-  $.ajax(settings)
-    .always(function()  { DivWaitHide(); })
-    .fail(function (jqXHR, textStatus, errorThrown)  {  ShowMessageError('Error en la petición AJAX:' + jqXHR.responseText + ' ' + textStatus + ' ' + errorThrown); })
-    .done(function (Data) 
-    {
-      LS_Set('Data', JSON.stringify(Data));
-      console.log('Data: ', Data);
-      if(true)
-      {
-        URL = 'https://lilix.ceramicaitalia.com:2508/API_Ext/SendWhatsapp.php';
-        //URL     = 'modules/mod_SendWhatsApp.php';
-        let Msg = '🏡✨ ¡Buen día. Hoy se ha solicitado unas muestras 🟧⬜, por favor, proceda a gestionar el pedido 📥. Feliz día.'
-        formData.append('Msg',    Msg);
-    
-        var ObjPost = $.post( URL, {Msg: Msg } );
-        ObjPost.done(function( data ) 
-        {
-          console.log(data)
-        });
-  
-        Data.Msg = '<h2>Ahora nuestro equipo estará enviando su orden pronto.</h2>';
-        ShowMessageRedirFull(Data.Msg, 'Thanks!','https://www.ceramicaitalia.com');
-        return 0;
-      }
-      //ShowTodosProductos(Data);
-    });
-}
+    console.log(data)
+  });
 
-
-/*
-https://lilix.ceramicaitalia.com:3001/clientes/invoice/getdetail/
-{
-"BANDERA":"TRAEDTL3",
-"CONSECUTIVO":"00000491"
+  Data.Msg = '<h2>Ahora nuestro equipo estará enviando su orden pronto.</h2>';
+  ShowMessageRedirFull(Data.Msg, 'Gracias!','https://www.ceramicaitalia.com');
+  return 0;
 }
-*/
-
-/*
-https://lilix.ceramicaitalia.com:3001/clientes/invoice/deldetail/
-{
-"BANDERA"       :"ELIMINAR",
-"IDREG"         :"60002739",
-"CONSECUTIV"    :"00000491",
-"NOMBRE"        :"",
-"TELEFONO"      :"",
-"CORREO"        :"",
-"IDENTIFICACION":"",
-"CODVEN"        :"",
-"TDOC"          :"",
-"CANAL"         :"X",
-"NOTA"          :"",
-"ZONAV"         :"",
-"OFIV"          :"",
-"ORG"           :""
-}
-*/
