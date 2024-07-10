@@ -117,7 +117,7 @@
     width: 100%;
     box-sizing: border-box;
     /* Ensures padding doesn't affect width */
-    font-size: 10px !important;
+    font-size: 10px;
   }
 
   .gallery .item:hover
@@ -462,6 +462,14 @@
 }
 
 /* ======================  ToolTip  ============================ */
+/*
+.popover
+{
+  color: #fff !important;
+  background-color: #f00;
+  box-shadow: 0 0px 9px rgba(0, 2, 4, 0.65);
+}*/
+
 .popover-header
 {
   color: #fff !important;
@@ -475,17 +483,3 @@
   color: #000 !important;
   background-color: #fff;
 }
-
-.popover
-{
-  color: #fff !important;
-  background-color: #f00;
-  box-shadow: 0 0px 9px rgba(0, 2, 4, 0.65);
-}
-
-
-.tooltip.bs-tooltip-top .arrow::before, .tooltip.bs-tooltip-bottom .arrow::before 
-{
-  left: 95px;
-}
-  

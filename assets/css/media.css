@@ -59,18 +59,6 @@
       font-size: 10px !important;
     }
 
-    .gallery 
-    {
-      grid-template-columns: repeat(1, 1fr);
-      margin: 0px;
-      padding-bottom: 5px;
-    }
-
-    .gallery .item h3
-    {
-      font-size: 16px;
-    }
-
     .titulo-gallery { margin-bottom: 8px; }
 
     .btnCISA
@@ -175,13 +163,42 @@
     .grilla-clasificacion 
     {
       grid-template-columns: repeat(2, 1fr);
-  }
+    }
+    /*  ================== Grilla de productos  =======================  */
+    .recFamilia 
+    {
+      width: 210px !important;
+    }
+
+    .div-formato 
+    {
+      width: 26px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .gallery 
+    {
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0px;
+      padding-bottom: 5px;
+    }
+
+    .gallery .item h3
+    {
+      font-size: 9px !important;
+    }    
 
   } 
 
   /* Estilos para dispositivos móviles medianos (entre 576px y 767px de ancho) */
   @media only screen and (min-width: 576px) and (max-width: 767px) 
   {
+    .recFamilia 
+    {
+      width: 228px;
+    }
+
     .div-frame-sel 
     {
       /* position: fixed; */

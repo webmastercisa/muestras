@@ -3,28 +3,13 @@ $(function()
   InitApp();
 
   window.onresize = ShowTamVentana;
-  ShowTamVentana();
+  ActivarPopOver();
   
 });
 
 
-function ShowTamVentana()
+function ActivarPopOver()
 {
-  const viewportWidth = window.innerWidth;
-
-  if (viewportWidth < 600) {
-      console.log('Modo móvil activado.');
-      // Ejecuta alguna función para dispositivos móviles
-  } else if (viewportWidth >= 600 && viewportWidth < 1200) {
-      console.log('Modo tablet activado.');
-      // Ejecuta alguna función para tabletas
-  } else {
-      console.log('Modo escritorio activado.');
-      // Ejecuta alguna función para escritorios
-  }
-  console.log('viewportWidth', viewportWidth);
-  //alert(viewportWidth);
-
   const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
   const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 }
@@ -53,14 +38,13 @@ function InitApp()
 
 function OnClicFltTraficoChange(Param)
 { 
-  ResetLstBtTrafico();
-  Param.classList.remove('bt-categoria');
-  Param.classList.add('bt-categoria-sel');
+  ClicActivaCtrl(Param.id, 'bt-categoria', 'bt-categoria-sel'); //Reset
+  ClicActivaCtrl('', 'bt-clasificacion', 'bt-clasificacion-sel'); //Reset
 
   let DivMaster = document.getElementById('gallery');
   DivMaster.innerHTML = '';
 
-  let ValFitro  = Param.attributes.FltTrafico.value;  
+  let ValFitro  = Param.id;
   SetDescriptionClasificacion(ValFitro);
   let Data      = LS_Get('Data');
   /** TODO: Crear los botones de clasificación segun los productos filtrados */
@@ -86,49 +70,34 @@ function OnClicFltClasificacionChange(Param)
     ShowMessageError('Seleccione primero un tipo de tráfico, haciendo click en alguno de los botones de la parte izquierda.');
     return 0;
   }  
-  SetBtClasificacionActivo(Param.id);
+  
   let ValFitro  = Param.attributes.FltClasificacion.value;
   let DataFlt   = LstproductosClasificacionANSI(JSON.parse(Data), ValFitro);
-  ShowProductosFiltrados(DataFlt);
-}
-
-function SetBtClasificacionActivo(ValBtId)
-{
-  const LstBt = document.querySelectorAll('.bt-clasificacion-sel');
-  LstBt.forEach(Bt => 
-  {
-    Bt.classList.remove('bt-clasificacion-sel');
-    Bt.classList.add('bt-clasificacion');
-  });
-
-  let BtObj = document.getElementById(ValBtId);
-  BtObj.classList.remove('bt-clasificacion');
-  BtObj.classList.add('bt-clasificacion-sel');    
+  ShowProductosFiltrados(DataFlt, Param.id);
 }
 
 function SetDescriptionClasificacion(ClasificacionValue='')
 {
-  console.log('Trafico a modificar: ',ClasificacionValue);
   let Clasificacion       = ["RESIDENCIAL MODERADO", "RESIDENCIAL GENERAL", "COMERCIAL MODERADO", "COMERCIAL GENERAL"];
-  let DescClasificacion1  = ["Dormitorios, estudios sin acceso directo al exterior.", 
-                              "Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones.", 
-                              "Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales sin acceso directo al exterior, de bajo tráfico y oficinas.",
-                              "Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior, no aplica para aeropuertos."
+  let DescClasificacion1  = ["❌ Dormitorios, estudios sin acceso directo al exterior.", 
+                              "❌ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones.", 
+                              "❌ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales sin acceso directo al exterior, de bajo tráfico y oficinas.",
+                              "❌ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior, no aplica para aeropuertos."
                             ];
-  let DescClasificacion2  = ["Dormitorios, estudios y baños (incluyendo la ducha), balcones y saunas, sin acceso directo al exterior.", 
-                              "Todas las áreas de la casa incluyendo las duchas, las escaleras y los balcones.",                          
-                              "Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de bajo tráfico y oficinas. Salones sociales de interior y de exterior cubiertos. Restaurantes con cocina cerrada y abierta, peluquerías.",
-                              "Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior y de exterior cubiertos, Restaurantes con cocina cerrada y abierta, peluquerías, no aplica para aeropuertos."
+  let DescClasificacion2  = ["❌ Dormitorios, estudios y baños (incluyendo la ducha), balcones y saunas, sin acceso directo al exterior.", 
+                              "❌ Todas las áreas de la casa incluyendo las duchas, las escaleras y los balcones.",                          
+                              "❌ Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de bajo tráfico y oficinas. Salones sociales de interior y de exterior cubiertos. Restaurantes con cocina cerrada y abierta, peluquerías.",
+                              "❌ Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior y de exterior cubiertos, Restaurantes con cocina cerrada y abierta, peluquerías, no aplica para aeropuertos."
                             ];
-  let DescClasificacion3  = ["Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
-                              "Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",                              
-                              "Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones.",
-                              "Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos."
+  let DescClasificacion3  = ["❌ Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
+                              "❌ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",                              
+                              "❌ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones.",
+                              "❌ Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos."
                             ];
-  let DescClasificacion4  = ["Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
-                              "Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",
-                              "Patios y terrazas residenciales. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Cocinas de exterior",
-                              "Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos Cocinas de exterior"
+  let DescClasificacion4  = ["❌ Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
+                              "❌ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",
+                              "❌ Patios y terrazas residenciales. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Cocinas de exterior",
+                              "❌ Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos Cocinas de exterior"
                             ];
   for (let i = 0; i < Clasificacion.length; i++) 
   {
@@ -161,7 +130,7 @@ function SetDescriptionClasificacion(ClasificacionValue='')
 
 }
 
-function ShowProductosFiltrados(Data)
+function ShowProductosFiltrados(Data, CtrlId)
 { 
   DivWaitShow();
   //Data = LS_Get('DataFlt');
@@ -170,8 +139,6 @@ function ShowProductosFiltrados(Data)
   let Formatos = getFormato(Data);
   let CantFamilias = Familias.length;
   let CantFormatos = Formatos.length;
-  console.log('Familias: ', Familias);
-  console.log('Formatos: ', Formatos);
 
   if(CantFamilias == 0)
   {
@@ -182,13 +149,10 @@ function ShowProductosFiltrados(Data)
 
   let DivMaster = document.getElementById('gallery');
   DivMaster.innerHTML = '';
-  let Cod = '';
-  /*
-    <div class="recFamilia">
-      <div class="btnCISAInv" onclick="OrderTerminate();">Finalizar orden</div>                
-    </div>
-  */
+ 
+  ClicActivaCtrl(CtrlId, 'bt-clasificacion', 'bt-clasificacion-sel')
 
+  let Cod = '';
   for (let i = 0; i < CantFamilias; i++)
   {
     let ObjDivF = Div('','','div-columna1');//H(2,Familias[i],'recFamilia');
@@ -208,8 +172,6 @@ function ShowProductosFiltrados(Data)
     
         LstParaMostrar.forEach((item) => 
         {
-          //console.log('material',item.material);
-          //console.log('nombre',item.nombre);
           Cod = item.material.substring(12);
           let ObjDiv  = Div('',Cod,'item');
           let ObjImg  = Img('https://web.ceramicaitalia.com/temporada/' + Cod + '_2.jpg','CISA USA','usa.ceramicaitalia.com','ProdImg');

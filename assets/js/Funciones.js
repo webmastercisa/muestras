@@ -115,10 +115,29 @@ function RedirHome()
 
 function RedirFirtsHome()
 {
-  let URL   = "https://www.ceramicaitalia.com/muestras";
+  let URL   = "https://web.ceramicaitalia.com/muestras";
   let time  = 1500;
   setTimeout(GoToPage, time, URL);  
 }
+/**
+ * 
+ * @param {*} Value 
+ * @returns 
+ */
+function ClicActivaCtrl(CtrlId='', Cls='', ClsActiva='')
+{
+  const LstBt = document.querySelectorAll('.'+ClsActiva);
+  LstBt.forEach(Bt => 
+  {
+    Bt.classList.remove(ClsActiva);    Bt.classList.add(Cls);
+  });
+
+  if(CtrlId == '') return 0;
+
+  let BtObj = document.getElementById(CtrlId);
+  BtObj.classList.remove(Cls);  BtObj.classList.add(ClsActiva);    
+}
+
 
 /** ==========   LocalStorage =========== */
 function LS_Exist(Value)
