@@ -1,7 +1,8 @@
 /* ===============================================================================  */
   /* ==================  Estilos para dispositivos móviles  ========================= */
+  /* ==================       Basado en Bootstrap 5.2       ========================= */
   /* ===============================================================================  */
-  @media only screen and (max-width: 412px) 
+  @media only screen and (max-width: 575px) 
   {
     .tx-gallery { font-size: 0.7rem; color:#9b9b9b; line-height: 15px; }
     .tx-r1-5    { font-size: 0.7rem !important;  line-height: 16px; }
@@ -17,6 +18,7 @@
       font-size: 9px !important;
       font-weight: 300 !important;
     }
+
 
   /** ===========  Tabulador   ================== */
     #LstDetails2
@@ -115,6 +117,12 @@
       width: 40%;
     }
 
+    .div-logo-cisa img 
+    {    
+      width: 120px !important;
+      border-radius: 15px;
+    }
+
     .icono-close 
     {
       top: 8px !important;
@@ -123,11 +131,71 @@
       height: 25px !important;
     }
 
+    /* ===== Tabs Dry y Wet ====*/
+    .bt-clasificacion-sel 
+    {
+      border-radius: 15px;
+    }
+
+    .caption-style-4 li 
+    {
+      width: 74px !important;
+      margin-right: 0px !important;
+      margin-left: 2px !important;
+      margin-bottom: 2px;
+    }
+
+    .caption-style-4 img 
+    {    
+      width: 74px !important;
+    }
+
+    .caption-style-4 .blur 
+    {      
+      width: 74px !important;
+      height: 80px;
+      border-radius: 7px;
+    }
+
+    .caption-style-4 .caption-text 
+    {
+      width: 42px;
+      height: 80px;
+      top: 4px;
+    }
+
+    .grilla-clasificacion img
+    {
+      width: 74px;
+      height: auto;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .grilla-clasificacion 
+    {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
   } 
 
   /* Estilos para dispositivos móviles medianos (entre 576px y 767px de ancho) */
-  @media only screen and (min-width: 413px) and (max-width: 767px) 
+  @media only screen and (min-width: 576px) and (max-width: 767px) 
   {
+    .div-frame-sel 
+    {
+      /* position: fixed; */
+      border-radius: 6px !important;
+      overflow: auto;
+      /*
+      height: auto;
+      margin-top: 10px;
+      top: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      */
+  }
+
+
     .gallery 
     {
       grid-template-columns: repeat(2, 1fr);
@@ -138,11 +206,29 @@
       font-size: 16px;
     }
 
+    .recCISA 
+    {
+      padding: 4px;
+      width: 80%;
+      border-radius: 8px !important;
+  }
+
     .btnCISA
     {
       margin-left: 5%;
       margin-right: 5%;
     }
+
+    .btnCISAInv
+    {
+      border-radius: 15px;
+      padding: 4px 6px 4px 6px;
+      margin-left: 1px;
+      margin-right: 1px;
+      width: -moz-available;
+      font-size: small;
+      line-height: 14px;
+    }    
 
     .btnSheet
     {
@@ -155,12 +241,68 @@
       width: 90%;
     }
 
+    .div-logo-cisa img 
+    {
+      width: 108px !important;
+      border-radius: 15px;
+    }
+
+
     .icono-close 
     {
       top: 12px !important;
       right: 12px !important;
       width: 25px !important;
       height: 25px !important;
+    }
+
+    /* ===== Tabs Dry y Wet ====*/
+    .caption-style-4 li 
+    {
+      width: 120px !important;
+      margin-right: 0px !important;
+      margin-left: 8px !important;
+    }
+    .caption-style-4 img 
+    {    
+      width: 120px !important;
+    }
+    .caption-style-4 .blur 
+    {      
+      width: 120px !important;
+      height: 180px;
+    }
+
+    .caption-style-4 .caption-text 
+    {
+      width: 120px;
+      height: 180px;
+      top: 4px;
+      font-size: 12px;
+      padding-left: 1px;
+      padding-right: 1px;
+    }
+
+    .tx-r1-5 
+    {
+      font-size: 0.8rem !important;
+    }
+    .tx-gallery 
+    {            
+      font-size: small;
+      line-height: 12px;
+    }
+
+    .titulo-gallery 
+    {
+      font-size: medium;
+    }
+
+    .grilla-clasificacion img
+    {
+      width: 96px;
+      height: auto;
+      display: block;
     }
   }
 
@@ -183,15 +325,37 @@
       margin-right: 5%;
     }
 
+    .btnCISAInv 
+    {
+      border-radius: 15px;
+      padding: 4px 4px 4px 4px;
+      margin-left: 1px;
+      margin-right: 1px;
+      width: -moz-available;
+      font-size: small;
+      line-height: 11px;
+    }
+
     .btnSheet
     {
       margin-left: 5%;
       margin-right: 5%;
     }
 
+    .bt-categoria 
+    {
+      width: 100%;
+    }
+
     .logo-cisa
     {
       width: 90%;
+    }
+
+    .div-logo-cisa img 
+    {    
+      width: 125px !important;
+      border-radius: 15px;
     }
 
     .icono-close 
@@ -200,7 +364,56 @@
       right: 18px !important;
       width: 25px !important;
       height: 25px !important;
-    }    
+    }
+    
+    /* ===== Tabs Dry y Wet ====*/
+    .caption-style-4 li 
+    {
+      width: 170px !important;
+      margin-right: 0px !important;
+      margin-left: 8px !important;
+    }
+    .caption-style-4 img 
+    {    
+      width: 170px !important;
+    }
+    .caption-style-4 .blur 
+    {      
+      width: 170px !important;
+      height: 180px;
+    }
+
+    .caption-style-4 .caption-text 
+    {
+      width: 170px;
+      height: 180px;
+      top: 4px;
+      font-size: 12px;
+      padding-left: 1px;
+      padding-right: 1px;
+    }
+
+    .tx-r1-5 
+    {
+      font-size: 0.8rem !important;
+    }
+    .tx-gallery 
+    {            
+      font-size: small;
+      line-height: 12px;
+    }
+
+    .titulo-gallery 
+    {
+      font-size: medium;
+    }
+
+    .grilla-clasificacion img
+    {
+      width: 128px;
+      height: auto;
+      display: block;
+    }
   }
 
   /* Estilos para portátiles medianos (entre 992px y 1199px de ancho) */
@@ -230,34 +443,46 @@
 
     .logo-cisa
     {
-      margin-top: 90px;
+      margin-top: 5px;
       width: 100%;          
+    }
+
+    .div-logo-cisa img 
+    {    
+      width: 134px !important;
+      border-radius: 15px;
     }
 
     /* ===== Tabs Dry y Wet ====*/
     .caption-style-4 li 
     {
-      width: 210px !important;
-      margin-right: 2px !important;
-      margin-left: 2px !important;
+      width: 160px !important;
+      margin-right: 0px !important;
+      margin-left: 8px !important;
     }
     .caption-style-4 img 
     {    
-      width: 210px !important;
+      width: 160px !important;
     }
     .caption-style-4 .blur 
     {      
-      width: 210px !important;
-      height: 300px;
+      width: 160px !important;
+      height: 210px;
     }
 
     .caption-style-4 .caption-text 
     {
-      width: 210px;
-      height: 300px;
-      top: 30px;
+      width: 155px;
+      height: 210px;
+      top: 4px;
     }
 
+    .grilla-clasificacion img
+    {
+      width: 186px;
+      height: auto;
+      display: block;
+    }
 
   }
 
@@ -295,18 +520,18 @@
     /* ===== Tabs Dry y Wet ====*/
     .caption-style-4 li 
     {
-        width: 150px !important;
-        margin-right: 15px !important;
-        margin-left: 70px !important;
+      width: 150px !important;
+      margin-right: 15px !important;
+      margin-left: 70px !important;
     }
     .caption-style-4 img 
     {    
-        width: 150px !important;
+      width: 150px !important;
     }
     .caption-style-4 .blur 
     {
-      height: 200px;
       width:  150px !important;
+      height: 200px;      
     }
 
     .caption-style-4 .caption-text 
@@ -352,6 +577,13 @@
     {
       width: 95%;   
     }
+
+    .grilla-clasificacion img
+    {
+      width: 148px;
+      height: auto;
+      display: block;
+    }
   }
 
   /* Estilos para escritorios grandes (1400px de ancho o más) */
@@ -388,8 +620,8 @@
     .caption-style-4 li 
     {
       width: 160px !important;
-      margin-right: 98px !important;
-      margin-left: 98px !important;
+      margin-right: 34px !important;
+      margin-left: 90px !important;
     }
     .caption-style-4 img 
     {    

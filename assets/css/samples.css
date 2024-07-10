@@ -40,7 +40,6 @@
     animation: .75s linear infinite spinner-border;
     color: #f00;
   }
-
   .titulo-gallery
   {
     color:#5c5c5c;
@@ -59,6 +58,17 @@
     width: 33%;
   }
 
+  .tooltip-text
+  {
+    font-size: 16px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    border-radius: 10px;/*4px;*/
+    overflow: hidden;
+    justify-content: space-between;
+  }
+
   .gallery
   {
     display: grid;
@@ -67,6 +77,13 @@
     margin: 20px;
 
     padding-bottom: 20px;
+  }
+
+  .grilla-clasificacion
+  {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .gallery .item
@@ -164,6 +181,10 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
+  .container-a4
+  {
+    margin-bottom: 5px;
+  }
   .div-frame-sel
   {
     /*position: fixed;*/
@@ -439,3 +460,32 @@
     color: #f00;
     margin: 4px;
 }
+
+/* ======================  ToolTip  ============================ */
+.popover-header
+{
+  color: #fff !important;
+  background-color: #f00;
+  font-weight: 800;
+  text-align: center;
+}
+
+.popover-body
+{
+  color: #000 !important;
+  background-color: #fff;
+}
+
+.popover
+{
+  color: #fff !important;
+  background-color: #f00;
+  box-shadow: 0 0px 9px rgba(0, 2, 4, 0.65);
+}
+
+
+.tooltip.bs-tooltip-top .arrow::before, .tooltip.bs-tooltip-bottom .arrow::before 
+{
+  left: 95px;
+}
+  

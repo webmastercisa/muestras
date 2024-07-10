@@ -1,7 +1,33 @@
 $(function() 
 {
   InitApp();
+
+  window.onresize = ShowTamVentana;
+  ShowTamVentana();
+  
 });
+
+
+function ShowTamVentana()
+{
+  const viewportWidth = window.innerWidth;
+
+  if (viewportWidth < 600) {
+      console.log('Modo móvil activado.');
+      // Ejecuta alguna función para dispositivos móviles
+  } else if (viewportWidth >= 600 && viewportWidth < 1200) {
+      console.log('Modo tablet activado.');
+      // Ejecuta alguna función para tabletas
+  } else {
+      console.log('Modo escritorio activado.');
+      // Ejecuta alguna función para escritorios
+  }
+  console.log('viewportWidth', viewportWidth);
+  //alert(viewportWidth);
+
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+}
 
 function InitApp()
 {
@@ -53,28 +79,20 @@ function ResetLstBtTrafico()
 }
 
 function OnClicFltClasificacionChange(Param)
-{   
-  let ValBt  = Param.attributes.fltno.value;
-  ResetLstBtClasificacion();
-  const LstBt = document.querySelectorAll('.bt-clasificacion'+ValBt);
-  let BtClasificacion = document.getElementById('bt-clasificacion'+ValBt);
-  BtClasificacion.classList.remove('bt-clasificacion');
-  BtClasificacion.classList.add('bt-clasificacion-sel');
-  
-  let ValFitro  = Param.attributes.FltClasificacion.value;
-  console.log('ValFitro: ',ValFitro);
+{  
   let Data      = LS_Get('DataFlt');
   if(Data == '')
   {
-    ShowMessageError('Seleccione primero un tipo de trafico, haciendo click en alguno de los botones de la parte izquierda.');
+    ShowMessageError('Seleccione primero un tipo de tráfico, haciendo click en alguno de los botones de la parte izquierda.');
     return 0;
-  }
+  }  
+  SetBtClasificacionActivo(Param.id);
+  let ValFitro  = Param.attributes.FltClasificacion.value;
   let DataFlt   = LstproductosClasificacionANSI(JSON.parse(Data), ValFitro);
-  //LS_Set('DataFlt', JSON.stringify(DataFlt));
   ShowProductosFiltrados(DataFlt);
 }
 
-function ResetLstBtClasificacion()
+function SetBtClasificacionActivo(ValBtId)
 {
   const LstBt = document.querySelectorAll('.bt-clasificacion-sel');
   LstBt.forEach(Bt => 
@@ -82,6 +100,10 @@ function ResetLstBtClasificacion()
     Bt.classList.remove('bt-clasificacion-sel');
     Bt.classList.add('bt-clasificacion');
   });
+
+  let BtObj = document.getElementById(ValBtId);
+  BtObj.classList.remove('bt-clasificacion');
+  BtObj.classList.add('bt-clasificacion-sel');    
 }
 
 function SetDescriptionClasificacion(ClasificacionValue='')
@@ -112,16 +134,27 @@ function SetDescriptionClasificacion(ClasificacionValue='')
   {
     if(Clasificacion[i] == ClasificacionValue)
     {
-      console.log('Trafico encontrado: ', i);
-      let Class1 = document.getElementById('ClasificacionDesc1');
-      let Class2 = document.getElementById('ClasificacionDesc2');
-      let Class3 = document.getElementById('ClasificacionDesc3');
-      let Class4 = document.getElementById('ClasificacionDesc4');
+      let Class1 = document.getElementById('bt-clasificacion1');
+      let Class2 = document.getElementById('bt-clasificacion2');
+      let Class3 = document.getElementById('bt-clasificacion3');
+      let Class4 = document.getElementById('bt-clasificacion4');
 
-      Class1.innerHTML = DescClasificacion1[i];
-      Class2.innerHTML = DescClasificacion2[i];
-      Class3.innerHTML = DescClasificacion3[i];
-      Class4.innerHTML = DescClasificacion4[i];
+      const popoverInstance1 = bootstrap.Popover.getInstance(Class1);
+      Class1.setAttribute('data-bs-content', DescClasificacion1[i]);
+      popoverInstance1.setContent({'.popover-body': DescClasificacion1[i]}); popoverInstance1.update();
+
+      const popoverInstance2 = bootstrap.Popover.getInstance(Class2);
+      Class2.setAttribute('data-bs-content', DescClasificacion2[i]);
+      popoverInstance2.setContent({'.popover-body': DescClasificacion2[i]}); popoverInstance2.update();
+      
+      const popoverInstance3 = bootstrap.Popover.getInstance(Class3);
+      Class3.setAttribute('data-bs-content', DescClasificacion3[i]);
+      popoverInstance3.setContent({'.popover-body': DescClasificacion3[i]}); popoverInstance3.update();
+      
+      const popoverInstance4 = bootstrap.Popover.getInstance(Class4);
+      Class4.setAttribute('data-bs-content', DescClasificacion4[i]);
+      popoverInstance4.setContent({'.popover-body': DescClasificacion4[i]}); popoverInstance4.update();      
+
       return 0;
     } //if
   } //for

@@ -142,16 +142,24 @@
     background-color: #000;
   }  
 
-  .bt-clasificacion
+  .div-centrado
   {
-    display: block;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
   }
+
+
+  .bt-clasificacion:hover
+  {
+    filter: invert(100%);
+  }  
 
   .bt-clasificacion-sel
   {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    border: 1px solid #f00;
-    border-radius: 25px;    
+    filter: invert(100%);
   }  
 
 /**  =============  Botones redondos ============

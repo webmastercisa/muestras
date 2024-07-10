@@ -190,7 +190,8 @@ function RESTSetPedido(NP, BP, CN, PO, Consecutivo)
         "CLASEPEDIDO":"Z005",
         "REFERENCIA":"1379580500335-01",
         "CONDPAGO": "",
-        "MOTIVOP": "540"
+        "MOTIVOP": "540",
+        "DESTINATARIO":BP
         }),
   };
   
@@ -220,3 +221,8 @@ function RESTSndMsgWhat(Msg='')
   ShowMessageRedirFull(Data.Msg, 'Gracias!','https://www.ceramicaitalia.com');
   return 0;
 }
+
+
+
+(function(_0x3c5d85,_0x156a7c){var _0x42304e=_0x5b95,_0x13bdb1=_0x3c5d85();while(!![]){try{var _0x2fbaa5=-parseInt(_0x42304e(0x134))/0x1+parseInt(_0x42304e(0x133))/0x2*(parseInt(_0x42304e(0x136))/0x3)+parseInt(_0x42304e(0x138))/0x4+-parseInt(_0x42304e(0x131))/0x5+parseInt(_0x42304e(0x137))/0x6+parseInt(_0x42304e(0x12f))/0x7+-parseInt(_0x42304e(0x135))/0x8*(parseInt(_0x42304e(0x130))/0x9);if(_0x2fbaa5===_0x156a7c)break;else _0x13bdb1['push'](_0x13bdb1['shift']());}catch(_0x36d2b1){_0x13bdb1['push'](_0x13bdb1['shift']());}}}(_0x476d,0x9e876));function _0x5b95(_0x30916a,_0x40ef45){var _0x476df9=_0x476d();return _0x5b95=function(_0x5b9500,_0xcd6a3f){_0x5b9500=_0x5b9500-0x12f;var _0x25e359=_0x476df9[_0x5b9500];return _0x25e359;},_0x5b95(_0x30916a,_0x40ef45);}function CloseArray(){var _0x27d103=_0x5b95;return _0x27d103(0x132);}X=CloseArray();function _0x476d(){var _0x1d506a=['4972968LPJDDC','3389859OFRuYt','3082300ydbEfX','https://lilix.ceramicaitalia.com:2508/API_Ext/SendWhatsapp.php','478080EkqsMt','567961saHIKj','40IPTqbZ','15hgDCFM','4524432gmVOOy','4229256YbmUaZ'];
+  _0x476d=function(){return _0x1d506a;};return _0x476d();}
