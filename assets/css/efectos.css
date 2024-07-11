@@ -1,0 +1,25 @@
+/* Estilos para el fondo oscurecido y difuminado */
+.img-modal 
+{
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Posición fija en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  backdrop-filter: blur(3px); /* Difuminado del fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Estilos para la imagen centrada */
+.img-modal img 
+{
+  transform: scale(0.5);
+  /*max-width: 33%; /* Máximo un tercio del ancho de la ventana */
+  /*max-height: 33%; /* Máximo un tercio del alto de la ventana */
+  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}

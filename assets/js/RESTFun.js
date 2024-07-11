@@ -26,7 +26,10 @@ function RESTGetTodosProductos()
   };
   
   $.ajax(settings)
-    .always(function () { DivWaitHide(); })
+    .always(function () 
+    { 
+      DivWaitHide();      
+    })
     .fail(function (jqXHR, textStatus, errorThrown) { ShowMessageError('Error AJAX: ' + jqXHR.responseText + ' ' + textStatus + ' - ' + errorThrown); })
     .done(function (Data) 
     { 

@@ -11,7 +11,6 @@ function validarEmail(email)
   return regex.test(email);
 }
 
-
 function InputValidaCorreo(inputElement) 
 {
   const input = inputElement.value;
@@ -29,7 +28,6 @@ function InputValidaCorreo(inputElement)
   }
 }
 
-
 function InputSoloNumeros(inputElement) 
 {
   const input = inputElement.value;
@@ -46,18 +44,18 @@ function InputSoloNumeros(inputElement)
   } //else
 }
 
-
-
 function DivWaitShow()
 {
   let spinner = document.getElementById("DivWait");
   spinner.style.visibility  = 'visible';
+  document.getElementById('imageModalContenedor').style.display = 'flex';
 }
 
 function DivWaitHide()
 {
   let spinner = document.getElementById("DivWait");
   spinner.style.visibility  = 'hidden';
+  document.getElementById('imageModalContenedor').style.display = 'none';
 }
 
 function PageReload() 
@@ -137,7 +135,6 @@ function ClicActivaCtrl(CtrlId='', Cls='', ClsActiva='')
   let BtObj = document.getElementById(CtrlId);
   BtObj.classList.remove(Cls);  BtObj.classList.add(ClsActiva);    
 }
-
 
 /** ==========   LocalStorage =========== */
 function LS_Exist(Value)

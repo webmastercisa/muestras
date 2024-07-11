@@ -83,25 +83,25 @@ function OnClicFltClasificacionChange(Param)
 function SetDescriptionClasificacion(ClasificacionValue='')
 {
   let Clasificacion       = ["RESIDENCIAL MODERADO", "RESIDENCIAL GENERAL", "COMERCIAL MODERADO", "COMERCIAL GENERAL"];
-  let DescClasificacion1  = ["❌ Dormitorios, estudios sin acceso directo al exterior.", 
-                              "❌ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones.", 
-                              "❌ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales sin acceso directo al exterior, de bajo tráfico y oficinas.",
-                              "❌ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior, no aplica para aeropuertos."
+  let DescClasificacion1  = ["✔️ Dormitorios, estudios sin acceso directo al exterior.", 
+                              "✔️ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones.", 
+                              "✔️ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales sin acceso directo al exterior, de bajo tráfico y oficinas.",
+                              "✔️ Todas las áreas de la vivienda menos la cocina, los baños, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior, no aplica para aeropuertos."
                             ];
-  let DescClasificacion2  = ["❌ Dormitorios, estudios y baños (incluyendo la ducha), balcones y saunas, sin acceso directo al exterior.", 
-                              "❌ Todas las áreas de la casa incluyendo las duchas, las escaleras y los balcones.",                          
-                              "❌ Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de bajo tráfico y oficinas. Salones sociales de interior y de exterior cubiertos. Restaurantes con cocina cerrada y abierta, peluquerías.",
-                              "❌ Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior y de exterior cubiertos, Restaurantes con cocina cerrada y abierta, peluquerías, no aplica para aeropuertos."
+  let DescClasificacion2  = ["✔️ Dormitorios, estudios y baños (incluyendo la ducha), balcones y saunas, sin acceso directo al exterior.", 
+                              "✔️ Todas las áreas de la casa incluyendo las duchas, las escaleras y los balcones.",                          
+                              "✔️ Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de bajo tráfico y oficinas. Salones sociales de interior y de exterior cubiertos. Restaurantes con cocina cerrada y abierta, peluquerías.",
+                              "✔️ Todas las áreas de la vivienda incluyendo la ducha, las escaleras y los balcones. Lobbies y puntos fijos, locales comerciales de alto tráfico y oficinas, Centros hospitalarios de baja complejidad, instituciones educativas, supermercados, Salones sociales de interior y de exterior cubiertos, Restaurantes con cocina cerrada y abierta, peluquerías, no aplica para aeropuertos."
                             ];
-  let DescClasificacion3  = ["❌ Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
-                              "❌ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",                              
-                              "❌ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones.",
-                              "❌ Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos."
+  let DescClasificacion3  = ["✔️ Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
+                              "✔️ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",                              
+                              "✔️ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones.",
+                              "✔️ Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos."
                             ];
-  let DescClasificacion4  = ["❌ Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
-                              "❌ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",
-                              "❌ Patios y terrazas residenciales. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Cocinas de exterior",
-                              "❌ Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos Cocinas de exterior"
+  let DescClasificacion4  = ["✔️ Exterior de piscinas resindeciales, baños (incluyendo duchas), saunas, balcones.",
+                              "✔️ Patios residenciales y terrazas residenciales. Exterior de piscinas de zonas comunes, baños (incluyendo duchas), saunas, balcones",
+                              "✔️ Patios y terrazas residenciales. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Cocinas de exterior",
+                              "✔️ Patios y terrazas en general. Exterior de piscinas comerciales, baños (incluyendo duchas), saunas, balcones. Salones sociales de exterior, incluyendo terrazas. Andenes de tránsito públicos Cocinas de exterior"
                             ];
   for (let i = 0; i < Clasificacion.length; i++) 
   {
@@ -178,7 +178,7 @@ function ShowProductosFiltrados(Data, CtrlId)
         {
           Cod = item.material.substring(12);
           let ObjDiv  = Div('',Cod,'item');
-          let ObjImg  = Img('https://web.ceramicaitalia.com/temporada/' + Cod + '_2.jpg','CISA USA','usa.ceramicaitalia.com','ProdImg');
+          let ObjImg  = Img('https://web.ceramicaitalia.com/temporada/' + Cod + '_2.jpg','CISA','ceramicaitalia.com','ProdImg','','');
           ObjDiv.appendChild(ObjImg);
       
           let ObjH3   = H('3',item.nombre);
@@ -228,10 +228,13 @@ function AgregarProducto(Param)
   ObjDiv2.setAttribute("prod_sap", ProdSap);
   ObjDiv2.setAttribute("prod_sap_nom", ProdName);
 
-  let ObjImg  = Img('https://web.ceramicaitalia.com/temporada/' + ProdSap + '_2.jpg','CISA USA','usa.ceramicaitalia.com','ProdImgMini');
+  let ObjDiv3 = Div('', '', 'prod-img-mini-marco');
+  let NomImg  = 'https://web.ceramicaitalia.com/temporada/' + ProdSap + '_2.jpg';
+  let ObjImg  = Img(NomImg,'CISA USA','ceramicaitalia.com','prod-img-mini', showImgModal, NomImg);
   ObjImg.setAttribute("prod_sap", ProdSap);
+  ObjDiv3.appendChild(ObjImg);
+  ObjDiv.appendChild(ObjDiv3);
 
-  ObjDiv.appendChild(ObjImg);
   ObjDiv.appendChild(ObjDiv2);
   DivMaster.appendChild(ObjDiv);
 }

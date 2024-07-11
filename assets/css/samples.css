@@ -207,14 +207,14 @@
   }
 
   .div-frame-item-sel
-  {
-    /*width: 100%;*/
+  {    
     background-color: #e8e8e8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
     border-radius: 15px;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
@@ -461,15 +461,31 @@
     margin: 4px;
   }
 
-  .ProdImgMini
+  .prod-img-mini-marco
+  {
+    position: relative;
+    width: 100%; /* Asegura que el contenedor abarca toda la pantalla */
+    height: 32px; /* Altura completa de la pantalla */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */    
+  }
+
+
+  .prod-img-mini
   {
     width: 38px;
+    height: auto;
     display: grid;
     justify-content: center;
     align-items: center;
     background-color: #fff;
     text-decoration: none;
     margin: 4px;
+    /* ====== */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la transición del zoom y el sombreado */
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    z-index: 2; /* Asegura que la imagen esté sobre el overlay */
   } 
 
   /*<i class="fa fa-trash-alt"></i>*/
@@ -511,11 +527,11 @@
     margin: 4px;
   }
 /* ======================  ToolTip  ============================ */
-/*
+
 .popover
 {
-  color: #fff !important;
-  background-color: #f00;
+  /*color: #fff !important;
+  background-color: #f00;*/
   box-shadow: 0 0px 9px rgba(0, 2, 4, 0.65);
 }*/
 

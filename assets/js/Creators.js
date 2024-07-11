@@ -5,13 +5,18 @@
  * @param {string} Title Titulo de la imagen.
  * @returns Objeto de tipo imagen, con sus atributos asignados.
  */
-function Img(Src='', Alt='', Title='', Class='')
+function Img(Src='', Alt='', Title='', Class='', EventoClic, Param='')
 {
   let Obj       = document.createElement('img');
   Obj.src       = Src;
   Obj.alt       = Alt;
   Obj.title     = Title;
-  Obj.className = Class;
+  Obj.className = Class;  
+
+  if(EventoClic != '')
+    Obj.addEventListener('click', function(event) { EventoClic(event, Param);}); 
+  //EventoClic(event, this  ...Param); 
+
   return Obj;
 }
 
