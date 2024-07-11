@@ -2,7 +2,7 @@
   /* ==================  Estilos para dispositivos móviles  ========================= */
   /* ==================       Basado en Bootstrap 5.2       ========================= */
   /* ===============================================================================  */
-  @media only screen and (max-width: 575px) 
+  @media only screen and (max-width: 575px) /** ====  xs  ===== */
   {
     .tx-gallery { font-size: 0.7rem; color:#9b9b9b; line-height: 15px; }
     .tx-r1-5    { font-size: 0.7rem !important;  line-height: 16px; }
@@ -192,7 +192,7 @@
   } 
 
   /* Estilos para dispositivos móviles medianos (entre 576px y 767px de ancho) */
-  @media only screen and (min-width: 576px) and (max-width: 767px) 
+  @media only screen and (min-width: 576px) and (max-width: 767px)  /** ====  sm  ===== */
   {
     .recFamilia 
     {
@@ -324,7 +324,7 @@
   }
 
   /* Estilos para portátiles pequeños (entre 768px y 991px de ancho) */
-  @media only screen and (min-width: 768px) and (max-width: 991px) 
+  @media only screen and (min-width: 768px) and (max-width: 991px)  /** ====  md  ===== */
   {
     .gallery 
     {
@@ -434,7 +434,7 @@
   }
 
   /* Estilos para portátiles medianos (entre 992px y 1199px de ancho) */
-  @media only screen and (min-width: 992px) and (max-width: 1199px) 
+  @media only screen and (min-width: 992px) and (max-width: 1199px)  /** ====  lg  ===== */
   {
     .gallery 
     {
@@ -466,7 +466,7 @@
 
     .div-logo-cisa img 
     {    
-      width: 134px !important;
+      width: 90% !important;
       border-radius: 15px;
     }
 
@@ -496,7 +496,7 @@
 
     .grilla-clasificacion img
     {
-      width: 186px;
+      width: 170px;
       height: auto;
       display: block;
     }
@@ -504,7 +504,7 @@
   }
 
   /* Estilos para escritorios pequeños (entre 1200px y 1399px de ancho) */
-  @media only screen and (min-width: 1200px) and (max-width: 1399px) 
+  @media only screen and (min-width: 1200px) and (max-width: 1399px)  /** ====  xl  ===== */
   {
     .gallery 
     {
@@ -575,7 +575,7 @@
 
     .div-frame-item-sel
     {
-      display: block;
+      display: flex;
       padding: 4px;
       margin-bottom: 5px;
       font-size: 14px !important;
@@ -604,7 +604,7 @@
   }
 
   /* Estilos para escritorios grandes (1400px de ancho o más) */
-  @media only screen and (min-width: 1400px) 
+  @media only screen and (min-width: 1400px)      /** ====  xxl  ===== */
   {
     .gallery 
     {

@@ -459,8 +459,57 @@
     font-size: clamp(1rem, 5vw, 2.5rem);
     color: #f00;
     margin: 4px;
-}
+  }
 
+  .ProdImgMini
+  {
+    width: 38px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    text-decoration: none;
+    margin: 4px;
+  } 
+
+  /*<i class="fa fa-trash-alt"></i>*/
+  /* ======== Borde ======== */
+  .icono-delete-marco
+  {
+    width: 32px;
+    display: grid;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 4px;
+  }
+
+  .icono-delete::before
+  {
+    content: "\f2ed";
+    font-family: "Font Awesome 6 Free";
+    /*font-weight: 900;*/
+    /*margin-right: 5px;*/
+    font-size: 16px;/*clamp(1rem, 5vw, 2.5rem);*/
+    color: #f00;
+  }
+
+  /* ======== Marco para la imagen ======== */
+  .marco-img
+  {
+    width: 32px;
+    display: grid;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    margin: 4px;
+  }
 /* ======================  ToolTip  ============================ */
 /*
 .popover

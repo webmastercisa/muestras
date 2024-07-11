@@ -1,10 +1,8 @@
 $(function() 
 {
   InitApp();
-
-  window.onresize = ShowTamVentana;
+  //window.onresize = ShowTamVentana;
   ActivarPopOver();
-  
 });
 
 
@@ -22,6 +20,12 @@ function InitApp()
   let BP = TokensURL.get('ns'); //  BP Numero solicitante
   let CN = TokensURL.get('c');  //  Canal
   let PO = TokensURL.get('po'); // Poblacion
+
+  if(BP == '')
+  {
+    ShowMessageRedir('Sin información !!', 'www.ceramicaitalia.com');
+    return 0;
+  }
 
   LS_Set('NP', NP);
   LS_Set('BP', BP);  
@@ -219,12 +223,15 @@ function AgregarProducto(Param)
   ObjDiv.setAttribute("prod_sap_nom", ProdName);
 
   let ObjDiv2  = Div(ProdName, '', '');
-  ObjDiv.appendChild(ObjDiv2);
-
-  ObjDiv2  = Button('Quitar','btnRem', EliminarProducto, ['this']);
+  ObjDiv.appendChild(ObjDiv2);  
+  ObjDiv2  = Button('','icono-delete icono-delete-marco', EliminarProducto, ['this']);//btnRem
   ObjDiv2.setAttribute("prod_sap", ProdSap);
   ObjDiv2.setAttribute("prod_sap_nom", ProdName);
 
+  let ObjImg  = Img('https://web.ceramicaitalia.com/temporada/' + ProdSap + '_2.jpg','CISA USA','usa.ceramicaitalia.com','ProdImgMini');
+  ObjImg.setAttribute("prod_sap", ProdSap);
+
+  ObjDiv.appendChild(ObjImg);
   ObjDiv.appendChild(ObjDiv2);
   DivMaster.appendChild(ObjDiv);
 }
