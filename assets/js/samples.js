@@ -5,7 +5,6 @@ $(function()
   ActivarPopOver();
 });
 
-
 function ActivarPopOver()
 {
   const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -21,16 +20,33 @@ function InitApp()
   let CN = TokensURL.get('c');  //  Canal
   let PO = TokensURL.get('po'); // Poblacion
 
-  if(BP == '')
+  if(BP == '' || BP == null)
   {
-    ShowMessageRedir('Sin información !!', 'www.ceramicaitalia.com');
+    ShowMessageRedir('No se permite acceso sin información !!', 'https://www.ceramicaitalia.com');
     return 0;
   }
+
+  GetCentro(PO, function(Data)   
+  {
+    console.log('Long: ', Data.length);
+    if(Data.length > 0)
+    {
+      let CE = Data[0].werks;
+      let AL = parseInt(CE) + 1;
+      LS_Set('CE', CE);
+      LS_Set('AL', AL);
+    }
+    else
+    {
+      console.log('Valor por defecto');
+      LS_Set('CE', 1100);
+      LS_Set('AL', 1101);
+    }   
+  });
 
   LS_Set('NP', NP);
   LS_Set('BP', BP);  
   LS_Set('CN', CN);
-  LS_Set('PO', PO);
 
   LS_Set('FltTrafico', '');
   LS_Set('FltClasificacion', '');
@@ -190,7 +206,7 @@ function ShowProductosFiltrados(Data, CtrlId)
           ObjDiv.appendChild(BtA);
       
       
-          let ObjA    = A('https://fichatecnica.ceramicaitalia.com/ver.php?id='+ Cod + '&lang=en', 'Ficha técnica', 'btnSheet');
+          let ObjA    = A('https://fichatecnica.ceramicaitalia.com/ver.php?id='+ Cod + '&lang=es', 'Ficha técnica', 'btnSheet');
           ObjDiv.appendChild(ObjA);
       
           DivMaster.appendChild(ObjDiv);
@@ -231,8 +247,10 @@ function AgregarProducto(Param)
   let ObjDiv3 = Div('', '', 'prod-img-mini-marco');
   let NomImg  = 'https://web.ceramicaitalia.com/temporada/' + ProdSap + '_2.jpg';
   let ObjImg  = Img(NomImg,'CISA USA','ceramicaitalia.com','prod-img-mini', showImgModal, NomImg);
+  let ObjDivS = Div('', '', 'icono-search');
   ObjImg.setAttribute("prod_sap", ProdSap);
   ObjDiv3.appendChild(ObjImg);
+  ObjDiv3.appendChild(ObjDivS);
   ObjDiv.appendChild(ObjDiv3);
 
   ObjDiv.appendChild(ObjDiv2);
@@ -272,13 +290,22 @@ function OrderTerminate()
 
 function GrabarDetalles(Consecutivo)
 {
-  DivWaitShow();
-  $('#SamplesSelected > div').each(function() 
+  var divs = document.querySelectorAll('#SamplesSelected > div');
+  for (var i = 0; i < divs.length; i++) 
   {
-    let CodSAP = this.attributes.prod_sap.value;
-    let Descripcion = this.attributes.prod_sap_nom.value;
-    RESTSetPedidoDetalle(FinalizarPedido, Consecutivo, CodSAP, Descripcion)
-  });
+    let CodSAP = divs[i].attributes.prod_sap.value;
+    let Descripcion = divs[i].attributes.prod_sap_nom.value;
+    let CE      = LS_Get('CE');
+    let AL      = LS_Get('AL');
+    console.log('CodSAP: ',CodSAP);
+    console.log('Descripcion: ',Descripcion);
+    if(i == divs.length-1)
+      RESTSetPedidoDetalle(FinalizarPedido, Consecutivo, CodSAP, Descripcion, CE, AL, true); //ültimo llamado
+    else
+      RESTSetPedidoDetalle(FinalizarPedido, Consecutivo, CodSAP, Descripcion, CE, AL, false);
+  } //for
+
+  //FinalizarPedido(Consecutivo);
 }
 
 /**
@@ -287,12 +314,10 @@ function GrabarDetalles(Consecutivo)
  */
 function FinalizarPedido(Consecutivo)
 {
-  DivWaitShow();
   let NP = LS_Get('NP'); //  NIT principal
   let BP = LS_Get('BP'); // BP Numero solicitante
   let CN = LS_Get('CN'); // Canal
-  let PO = LS_Get('PO'); // Poblacion
-  RESTSetPedido(NP, BP, CN, PO, Consecutivo);
+  RESTSetPedido(NP, BP, CN, Consecutivo);
 }
 
 

@@ -128,7 +128,7 @@ function RESTGetBPData(CallBack)
  * @see       {@link https://www.ceramicaitalia.com/} 
  * @copyright T.I. CISA 2024 
  */
-function RESTSetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
+function RESTSetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion, CE, AL, Estado)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/detail/";
@@ -151,15 +151,15 @@ function RESTSetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
       "VALORDESCUENTO" :0,
       "IDREGISTRO" :"",
       "VENDEDOR" :"Z4",
-      "CENTRO" :"3100",
-      "ALMACEN" :"3101",
+      "CENTRO" :CE,
+      "ALMACEN" :AL,
       "UM" :"UN",
       "PESO" :0,
       "PRECIOPUBLICO" :0,
       "FECHANEC" :"",
-      "COMPONENTE" :"X",
+      "COMPONENTE" :"",
       "MATPADRE" :"",
-      "USO" :"RE7",
+      "USO" :"",
       "TPOS" :"ZMUE"
     }),
   };
@@ -169,12 +169,14 @@ function RESTSetPedidoDetalle(CallBack, Consecutivo, CodSAP, Descripcion)
     .fail(function (jqXHR, textStatus, errorThrown)  {  ShowMessageError('Error en AJAX:' + jqXHR.responseText + ' ' + textStatus + ' ' + errorThrown); })
     .done(function (Data) 
     {      
-      console.log('Data: ', Data); 
-      CallBack(Consecutivo);   
+      console.log('Data: ', Data);
+      // Si es el último detalle en ingresar, llamar a cerrrar el pedido
+      if (Estado == true)
+        CallBack(Consecutivo);   
     });
 }
 
-function RESTSetPedido(NP, BP, CN, PO, Consecutivo)
+function RESTSetPedido(NP, BP, CN, Consecutivo)
 {
   DivWaitShow();
   let URL = "https://lilix.ceramicaitalia.com:3001/clientes/invoice/createdocument/";
@@ -194,16 +196,16 @@ function RESTSetPedido(NP, BP, CN, PO, Consecutivo)
         "CORREO":"EBOR94@HOTMAIL.COM",
         "IDENTIFICACION":"0000104385",
         "CODVEN":"",
-        "TDOC":"ZCOM",
+        "TDOC":"ZCON",
         "CANAL":CN,
-        "NOTA":"PEDIDO COMBOS",
-        "ZONAV":"401",
-        "OFIV":"110",
+        "NOTA":"Muestras - Portal Muestras ",
+        "ZONAV":"",
+        "OFIV":"100",
         "ORG":"1000",
         "TIPOENVIO":"10",
-        "FLETE": 1000,
-        "CLASEPEDIDO":"Z005",
-        "REFERENCIA":"1379580500335-01",
+        "FLETE": 0,
+        "CLASEPEDIDO":"",
+        "REFERENCIA":"Muestras aliados",
         "CONDPAGO": "",
         "MOTIVOP": "540",
         "DESTINATARIO":BP
@@ -215,7 +217,42 @@ function RESTSetPedido(NP, BP, CN, PO, Consecutivo)
     .fail(function (jqXHR, textStatus, errorThrown)  {  ShowMessageError('Error en AJAX:' + jqXHR.responseText + ' ' + textStatus + ' ' + errorThrown); })
     .done(function (Data) 
     {      
-      console.log('Data: ', Data);     
+      if(Data.length > 0)
+      {
+        //Data[0].documento
+        console.log('Data: ', Data);
+        ShowMessageReload('!<h1>Pedido enviado</h1> <h2>Ahora nuestro equipo estará enviando su orden pronto.['+Data[0].documento+']</h2> !')
+      }
+      console.log('Data: ', Data);
+    });
+}
+
+function GetCentro(Poblacion='', callback)
+{
+  if(Poblacion == '')
+  {
+    return '1100';
+  }//if
+  DivWaitShow();
+  var settings = 
+  {
+    "url": "https://lilix.ceramicaitalia.com:3001/clientes/invoice/infociudad/",
+    "method": "POST",
+    "timeout": 0,
+    "headers": { "Content-Type": "application/json" },
+    "data": JSON.stringify({"CIUDAD": Poblacion}),
+  };
+  
+  $.ajax(settings)
+    .always(function () { DivWaitHide(); })
+    .fail(function (jqXHR, textStatus, errorThrown) 
+    { 
+      callback('[]');
+      ShowMessageError('Error AJAX: ' + jqXHR.responseText + ' ' + textStatus + ' - ' + errorThrown); 
+    })
+    .done(function (Data) 
+    { 
+      callback(Data);
     });
 }
 
@@ -237,29 +274,3 @@ function RESTSndMsgWhat(Msg='')
   return 0;
 }
 
-function GetCentro(Poblacion='')
-{
-  if(Poblacion == '')
-  {
-    return '1100';
-  }//if
-  DivWaitShow();
-  var settings = 
-  {
-    "url": "https://lilix.ceramicaitalia.com:3001/clientes/invoice/infociudad/",
-    "method": "POST",
-    "timeout": 0,
-    "headers": { "Content-Type": "application/json" },
-    "data": JSON.stringify({"CIUDAD": Poblacion}),
-  };
-  
-  $.ajax(settings)
-    .always(function () { DivWaitHide(); })
-    .fail(function (jqXHR, textStatus, errorThrown) { ShowMessageError('Error AJAX: ' + jqXHR.responseText + ' ' + textStatus + ' - ' + errorThrown); })
-    .done(function (Data) 
-    { 
-      console.log('Data: ', Data);
-      let DataTokens = JSON.stringify(Data);      
-      //ShowTodosProductos(Data);
-    });
-}  
