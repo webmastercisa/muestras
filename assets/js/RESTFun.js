@@ -217,13 +217,8 @@ function RESTSetPedido(NP, BP, CN, Consecutivo)
     .fail(function (jqXHR, textStatus, errorThrown)  {  ShowMessageError('Error en AJAX:' + jqXHR.responseText + ' ' + textStatus + ' ' + errorThrown); })
     .done(function (Data) 
     {      
-      if(Data.length > 0)
-      {
-        //Data[0].documento
-        console.log('Data: ', Data);
-        ShowMessageReload('!<h1>Pedido enviado</h1> <h2>Ahora nuestro equipo estará enviando su orden pronto.['+Data[0].documento+']</h2> !')
-      }
-      console.log('Data: ', Data);
+      ShowMessage('! Pedido creado correctamente !')
+      console.log('Data: ', Data);     
     });
 }
 

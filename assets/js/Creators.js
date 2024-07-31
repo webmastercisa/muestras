@@ -77,3 +77,4 @@ function Button(Txt='', Class='', EventoClic, Param)
   Obj.addEventListener('click', function(event) { EventoClic(event, Param);}); //EventoClic(event, this  ...Param); 
   return Obj;
 }
+

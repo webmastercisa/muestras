@@ -486,6 +486,10 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la transición del zoom y el sombreado */
     cursor: pointer; /* Cambia el cursor para indicar interactividad */
     z-index: 10; /* Asegura que la imagen esté sobre el overlay */
+
+
+    /*  ====== Una lupa sobre la imagen ==========  */
+
   } 
 
   /*<i class="fa fa-trash-alt"></i>*/
@@ -511,15 +515,6 @@
     /*margin-right: 5px;*/
     font-size: 16px;/*clamp(1rem, 5vw, 2.5rem);*/
     color: #f00;
-  }
-
-  .icono-search::before
-  {
-    content: "\f002";
-    font-family: "Font Awesome 6 Free";
-    font-size: 16px;/*clamp(1rem, 5vw, 2.5rem);*/
-    color: #ddd;
-    z-index: 4;
   }
 
   /* ======== Marco para la imagen ======== */
